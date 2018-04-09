@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+.txt
+{
+	width:80px;
+	height:15px;
+}
+
+#divTop
+{
+	border-style: outset;
+}
+
+#divTop-left
+{
+	float: left;
+	margin-top:20px;
+	margin-left:50px;
+}
+
+#divTop-right
+{
+	margin-top:20px;
+	margin-left:350px;
+}
+
+#divTop-i-l
+{
+	margin-left:50px;
+	margin-top:20px;
+	margin-bottom:10px;
+}
+
+#divBot
+{
+	border-style: outset;
+}
+
+#divBot-left
+{
+	float:left;
+	padding:10px;
+	margin-left:50px;
+	margin-bottom:20px;
+}
+
+#divBot-right
+{
+	padding:10px;
+	margin-left:300px;
+	margin-bottom:20px;
+}
+
+.t1 tr 
+{
+	line-height: 20px;
+}
+
+#btn
+{
+	margin-left:50px;
+	padding:10px;
+	
+}
