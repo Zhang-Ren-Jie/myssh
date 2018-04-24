@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018/04/12 11:53:11 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.ssh.pojo.Maintenance" table="MAINTENANCE">
+        <id name="btn" type="java.lang.String">
+            <column name="BTN" />
+            <generator class="assigned" />
+        </id>
+        <property name="id" type="java.lang.Integer">
+            <column name="ID" />
+        </property>
+        <property name="pyakucd" type="java.lang.String">
+            <column name="PYAKUCD" />
+        </property>
+        <property name="hancd" type="java.lang.String">
+            <column name="HANCD" />
+        </property>
+        <property name="hannm" type="java.lang.String">
+            <column name="HANNM" />
+        </property>
+        <property name="hanknm" type="java.lang.String">
+            <column name="HANKNM" />
+        </property>
+        <property name="hantsrks0" type="java.lang.String">
+            <column name="HANTSRKS0" />
+        </property>
+        <property name="hantsrks1" type="java.lang.String">
+            <column name="HANTSRKS1" />
+        </property>
+        <property name="hantsrks2" type="java.lang.String">
+            <column name="HANTSRKS2" />
+        </property>
+        <property name="hantsrks3" type="java.lang.String">
+            <column name="HANTSRKS3" />
+        </property>
+        <property name="hantsrks4" type="java.lang.String">
+            <column name="HANTSRKS4" />
+        </property>
+        <property name="hantsrks5" type="java.lang.String">
+            <column name="HANTSRKS5" />
+        </property>
+        <property name="hantsrks6" type="java.lang.String">
+            <column name="HANTSRKS6" />
+        </property>
+        <property name="hantsrks7" type="java.lang.String">
+            <column name="HANTSRKS7" />
+        </property>
+        <property name="hantsrks8" type="java.lang.String">
+            <column name="HANTSRKS8" />
+        </property>
+        <property name="hantsrks9" type="java.lang.String">
+            <column name="HANTSRKS9" />
+        </property>
+        <property name="ksyusymd0" type="java.lang.String">
+            <column name="KSYUSYMD0" />
+        </property>
+        <property name="ksyusymd1" type="java.lang.String">
+            <column name="KSYUSYMD1" />
+        </property>
+        <property name="ksyusymd2" type="java.lang.String">
+            <column name="KSYUSYMD2" />
+        </property>
+        <property name="ksyusymd3" type="java.lang.String">
+            <column name="KSYUSYMD3" />
+        </property>
+        <property name="ksyusymd4" type="java.lang.String">
+            <column name="KSYUSYMD4" />
+        </property>
+        <property name="ksyusymd5" type="java.lang.String">
+            <column name="KSYUSYMD5" />
+        </property>
+        <property name="ksyusymd6" type="java.lang.String">
+            <column name="KSYUSYMD6" />
+        </property>
+        <property name="ksyusymd7" type="java.lang.String">
+            <column name="KSYUSYMD7" />
+        </property>
+        <property name="ksyusymd8" type="java.lang.String">
+            <column name="KSYUSYMD8" />
+        </property>
+        <property name="ksyusymd9" type="java.lang.String">
+            <column name="KSYUSYMD9" />
+        </property>
+        <property name="ksyuymd0" type="java.lang.String">
+            <column name="KSYUYMD0" />
+        </property>
+        <property name="ksyuymd1" type="java.lang.String">
+            <column name="KSYUYMD1" />
+        </property>
+        <property name="ksyuymd2" type="java.lang.String">
+            <column name="KSYUYMD2" />
+        </property>
+        <property name="ksyuymd3" type="java.lang.String">
+            <column name="KSYUYMD3" />
+        </property>
+        <property name="ksyuymd4" type="java.lang.String">
+            <column name="KSYUYMD4" />
+        </property>
+        <property name="ksyuymd5" type="java.lang.String">
+            <column name="KSYUYMD5" />
+        </property>
+        <property name="ksyuymd6" type="java.lang.String">
+            <column name="KSYUYMD6" />
+        </property>
+        <property name="ksyuymd7" type="java.lang.String">
+            <column name="KSYUYMD7" />
+        </property>
+        <property name="ksyuymd8" type="java.lang.String">
+            <column name="KSYUYMD8" />
+        </property>
+        <property name="ksyuymd9" type="java.lang.String">
+            <column name="KSYUYMD9" />
+        </property>
+        <property name="ksts0" type="java.lang.String">
+            <column name="KSTS0" />
+        </property>
+        <property name="ksts1" type="java.lang.String">
+            <column name="KSTS1" />
+        </property>
+        <property name="ksts2" type="java.lang.String">
+            <column name="KSTS2" />
+        </property>
+        <property name="ksts3" type="java.lang.String">
+            <column name="KSTS3" />
+        </property>
+        <property name="ksts4" type="java.lang.String">
+            <column name="KSTS4" />
+        </property>
+        <property name="ksts5" type="java.lang.String">
+            <column name="KSTS5" />
+        </property>
+        <property name="ksts6" type="java.lang.String">
+            <column name="KSTS6" />
+        </property>
+        <property name="ksts7" type="java.lang.String">
+            <column name="KSTS7" />
+        </property>
+        <property name="ksts8" type="java.lang.String">
+            <column name="KSTS8" />
+        </property>
+        <property name="ksts9" type="java.lang.String">
+            <column name="KSTS9" />
+        </property>
+        <property name="toymd" type="java.lang.String">
+            <column name="TOYMD" />
+        </property>
+        <property name="kymd" type="java.lang.String">
+            <column name="KYMD" />
+        </property>
+    </class>
+</hibernate-mapping>

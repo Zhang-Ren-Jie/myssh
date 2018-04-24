@@ -12,13 +12,13 @@
 			value="com.mysql.jdbc.Driver">
 		</property>
 		<property name="url"
-			value="jdbc:mysql://localhost:3306/sturtshello">
+			value="jdbc:mysql://localhost:3306/myssh">
 		</property>
 		<property name="username" value="root"></property>
 		<property name="password" value="kin005"></property>
 	</bean>
 	
-	<!--  -->
+	<!-- bean factory配置 -->
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
 		<property name="dataSource">
@@ -35,9 +35,18 @@
 		<!-- 配置实体描述文件 -->
 		<property name="mappingResources">
 			<list>
+				<value>org/ssh/pojo/Maintenance.hbm.xml</value>
 				<value>org/ssh/pojo/Userinfo.hbm.xml</value>
 			</list>
 		</property>
+	</bean>
+													<!-- scope="prototype" 每一个请求有一个单独的Action来处理 -->
+	<bean id="masterAct" class="org.ssh.action.MasterAct" scope="prototype">
+		<property name="masterService" ref="masterService"></property>
+	</bean>
+	
+	<bean id="masterService" class="org.ssh.service.MasterService">
+		<property name="dao" ref="dao"></property>
 	</bean>
 	
 	<bean id="userAct" class="org.ssh.action.UserManagerAct" scope="prototype">
@@ -51,4 +60,5 @@
 	<bean id="dao" class="org.ssh.dao.BaseDao">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
+	
 </beans>

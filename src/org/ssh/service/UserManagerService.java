@@ -17,7 +17,7 @@ public class UserManagerService<T> {
 		return users.get(0);
 	}
 	
-	public List<T> PPPPPPPPPPPPPP(String uname,Class<T> clazz){
+	public List<T> queryUsers(String uname,Class<T> clazz){
 		if(uname == null || "".equals(uname))
 			return dao.getAllObjects(clazz);
 		String queryString = "SELECT u FROM Userinfo u WHERE u.uname like '"+uname+"%'";
@@ -27,19 +27,25 @@ public class UserManagerService<T> {
 	public void addUser(T user) throws Exception{
 		dao.addObject(user);
 	}
-	
+
+
+	//
 	public void modifyUser(T user) throws Exception{
 		dao.updateObject(user);
 	}
 	
-	public void deleteUser(int id,Class<T> clazz) throws Exception{
-		T u = dao.getObject(clazz, id);
-		dao.deleteObject(u);
-	}
+
 	
-	public T getUser(Class<T> clazz, int id){
-		return dao.getObject(clazz, id);
-	}
+	
+		public void deleteUser(int id,Class<T> clazz) throws Exception{
+			T u = dao.getObject(clazz, id);
+			dao.deleteObject(u);
+		}
+
+		public T getUser(Class<T> clazz, int id){
+			return dao.getObject(clazz, id);
+		}
+	
 	
 	public BaseDao getDao() {
 		return dao;

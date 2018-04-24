@@ -40,8 +40,8 @@ public class UserManagerAct extends ActionSupport {
 	}
 	
 	public String doQuery(){
-		searchText = getParam("queryText");
-		users = userService.PPPPPPPPPPPPPP(searchText,Userinfo.class);
+		searchText = "yxf";
+		users = userService.queryUsers(searchText,Userinfo.class);
 		return SUCCESS;
 	}
 
@@ -53,7 +53,7 @@ public class UserManagerAct extends ActionSupport {
 				user.setId(0);
 				userService.addUser(user);
 				result = doQuery();
-			}else
+			}else  
 				result = "addUser";
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -77,6 +77,7 @@ public class UserManagerAct extends ActionSupport {
 		return doQuery();
 	}
 	
+	
 	public String doDelete(){
 		try {
 			Integer param = Integer.parseInt(getParam("id"));
@@ -86,6 +87,7 @@ public class UserManagerAct extends ActionSupport {
 		}
 		return doQuery();
 	}
+	
 	
 	protected String getParam(String key){
 		return ServletActionContext.getRequest().getParameter(key);
