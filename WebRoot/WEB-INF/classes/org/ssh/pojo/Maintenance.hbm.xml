@@ -4,13 +4,12 @@
 <!-- Generated 2018/04/12 11:53:11 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
     <class name="org.ssh.pojo.Maintenance" table="MAINTENANCE">
-        <id name="btn" type="java.lang.String">
-            <column name="BTN" />
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
             <generator class="assigned" />
         </id>
-        <property name="id" type="java.lang.Integer">
-            <column name="ID" />
-        </property>
+
+        
         <property name="pyakucd" type="java.lang.String">
             <column name="PYAKUCD" />
         </property>

@@ -15,7 +15,7 @@
 			value="jdbc:mysql://localhost:3306/myssh">
 		</property>
 		<property name="username" value="root"></property>
-		<property name="password" value="kin005"></property>
+		<property name="password" value="930221"></property>
 	</bean>
 	
 	<!-- bean factory配置 -->
@@ -40,7 +40,7 @@
 			</list>
 		</property>
 	</bean>
-													<!-- scope="prototype" 每一个请求有一个单独的Action来处理 -->
+	<!-- scope="prototype" 每一个请求有一个单独的Action来处理 -->
 	<bean id="masterAct" class="org.ssh.action.MasterAct" scope="prototype">
 		<property name="masterService" ref="masterService"></property>
 	</bean>

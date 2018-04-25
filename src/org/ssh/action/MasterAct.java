@@ -4,6 +4,9 @@ package org.ssh.action;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
+import java.util.concurrent.atomic.AtomicLong;
+
 import org.apache.struts2.ServletActionContext;
 import org.ssh.pojo.Maintenance;
 import org.ssh.service.MasterService;
@@ -20,17 +23,17 @@ public class MasterAct extends ActionSupport {
 	
 	private List<Maintenance> masters;
 	
-	private String searchText;
+	private Integer searchText;
 	
-	private String searchTextToymd;
-	
-
+	private String searchTextPy;
 	
 	public String errmsg;
 	
+	public Integer xint;
+	
 	//新規登録、変更、削除後最新データを取得
 	public String doQuery(){
-		searchText = master.getPyakucd();
+		searchText = master.getId();
 		
 		masters = masterService.queryMaster(searchText,Maintenance.class);
 		
@@ -48,40 +51,13 @@ public class MasterAct extends ActionSupport {
 		System.out.println("新規登録処理を開始");
 		try {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); //显示的格式
-			
-			//登録前に、存在性チェック
-			searchText = master.getPyakucd();
-			System.out.println("pyakucd>>>>>>"+master.getPyakucd());
-			System.out.println("Hannm>>>>>>>>"+master.getHannm());
-			System.out.println("Hancd>>>>>>>>"+master.getHancd());
-			System.out.println("Hanknm>>>>>>>"+master.getHanknm());
 
-			
-			
-			if (searchText == null | "".equals(searchText)) {
-				errmsg = "新規登録のキー屠畜日付を入力してください。";
-				System.out.println("新規登録のキー屠畜日付を入力してください。");
-				return SUCCESS;
-			}
-//			-----更新日付存在性チェック----------------------------
-			searchTextToymd = master.getToymd();
-			if (searchTextToymd == null | "".equals(searchTextToymd)) {
-				errmsg = "更新日付を入力してください。";
-				System.out.println("更新日付を入力してください。");
-				return SUCCESS;
-			}
-		          
-		     master.setToymd(sdf.format(new Date()));
-		     master.setKymd(sdf.format(new Date()));
-			
-			masters = masterService.queryMaster(searchText,Maintenance.class);
-			if (masters.size() != 0) {
-				errmsg = "データが既に登録しましたので、登録できません。";
-				System.out.println("データが既に登録しましたので、登録できません。");
-				return SUCCESS;
-			}
-				
-			
+			xint=(int)(Math.random()*900)+100;
+			master.setId(xint);
+			master.setToymd(sdf.format(new Date()));
+		    master.setKymd(sdf.format(new Date()));
+			searchText = master.getId();
+
 			masterService.addMaster(master);
 			System.out.println("新規登録対象レコードが登録しました。");
 			System.out.println("新規登録処理を終了");
@@ -96,24 +72,15 @@ public class MasterAct extends ActionSupport {
 		System.out.println("更新処理を開始");
 		try {
 
-			//更新に、存在性チェック
-			searchText = master.getPyakucd();
-			if (searchText == null | "".equals(searchText)) {
-				errmsg = "更新のキー屠畜日付を入力してください。";
-				System.out.println("更新のキー屠畜日付を入力してください。");
-				return SUCCESS;
-			}
 			//-----更新日付存在性チェック----------------------------
-			searchTextToymd = master.getPyakucd();
-			if (searchTextToymd == null | "".equals(searchTextToymd)) {
-				errmsg = "更新日付を入力してください。";
+			searchTextPy = master.getPyakucd();
+			if (searchTextPy == null | "".equals(searchTextPy)) {
 				System.out.println("更新日付を入力してください。");
 				return SUCCESS;
 			}
 			
 			masters = masterService.queryMaster(searchText,Maintenance.class);
 			if (masters.size() == 0) {
-				errmsg = "更新対象レコードがありません。";
 				System.out.println("更新対象レコードがありません。");
 				return SUCCESS;
 			}
@@ -139,8 +106,8 @@ public class MasterAct extends ActionSupport {
 	    System.out.println("削除処理を開始");
 		try {
 			//削除前に、存在性チェック
-			searchText = master.getPyakucd();
-			if (searchText == null | "".equals(searchText)) {
+			searchTextPy = master.getPyakucd();
+			if (searchTextPy == null | "".equals(searchTextPy)) {
 				errmsg = "削除のキー年月日を入力してください。";
 				System.out.println("削除のキー年月日を入力してください。");
 				return SUCCESS;

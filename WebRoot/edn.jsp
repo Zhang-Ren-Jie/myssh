@@ -28,12 +28,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		<div id="divTop-i-l">
 		<table>	<!--　　maxlength:最大文字数　　　　 pattern=""正規表現　title:エラーメッセージ　　required:必須入力チェック　　 -->
-			
-			<tr><td>略CD </td><td><input type="text" name="pyakucd"  maxlength="30" />  </td>
-				<td>漢字名称 </td><td><input type="text" name="hannm" maxlength="60" /></td>
+			<input type="hidden" name="master.id" value="${master.id}" />
+			<tr><td>略CD </td><td><input type="text" name="master.pyakucd" value="${master.pyakucd}" maxlength="30" />  </td>
+				<td>漢字名称 </td><td><input type="text" name="master.hannm" value="${master.hannm}" maxlength="60" /></td>
 			</tr>
-			<tr><td>販売先CD</td><td><input type="text" name="hancd" maxlength="5" /></td>
-				<td>仮名名称</td><td><input type="text" name="hanknm" maxlength="30" /></td>
+			<tr><td>販売先CD</td><td><input type="text" name="master.hancd" value="${master.hancd}" maxlength="5" /></td>
+				<td>仮名名称</td><td><input type="text" name="master.hanknm" value="${master.hanknm}" maxlength="30" /></td>
 			</tr>
 		</table>
 		</div>
@@ -49,16 +49,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<table class="t1" border="1" cellspacing="0" bordercolor="#000000" style="border-collapse:collapse;">
 			<th>高品質</th>
 			<th>加算手数料</th>
-			<tr><td>0</td><td><input type="text" class="txt" name="hantsrks0" /></td></tr>
-			<tr><td>1</td><td><input type="text" class="txt" name="hantsrks1" /></td></tr>
-			<tr><td>2</td><td><input type="text" class="txt" name="hantsrks2" /></td></tr>
-			<tr><td>3</td><td><input type="text" class="txt" name="hantsrks3" /></td></tr>
-			<tr><td>4</td><td><input type="text" class="txt" name="hantsrks4" /></td></tr>
-			<tr><td>5</td><td><input type="text" class="txt" name="hantsrks5" /></td></tr>
-			<tr><td>6</td><td><input type="text" class="txt" name="hantsrks6" /></td></tr>
-			<tr><td>7</td><td><input type="text" class="txt" name="hantsrks7" /></td></tr>
-			<tr><td>8</td><td><input type="text" class="txt" name="hantsrks8" /></td></tr>
-			<tr><td>9</td><td><input type="text" class="txt" name="hantsrks9" /></td></tr>
+			<tr><td>0</td><td><input type="text" class="txt" name="master.hantsrks0" value="${master.hantsrks0}" /></td></tr>
+			<tr><td>1</td><td><input type="text" class="txt" name="master.hantsrks1" value="${master.hantsrks1}" /></td></tr>
+			<tr><td>2</td><td><input type="text" class="txt" name="master.hantsrks2" value="${master.hantsrks2}" /></td></tr>
+			<tr><td>3</td><td><input type="text" class="txt" name="master.hantsrks3" value="${master.hantsrks3}" /></td></tr>
+			<tr><td>4</td><td><input type="text" class="txt" name="master.hantsrks4" value="${master.hantsrks4}" /></td></tr>
+			<tr><td>5</td><td><input type="text" class="txt" name="master.hantsrks5" value="${master.hantsrks5}" /></td></tr>
+			<tr><td>6</td><td><input type="text" class="txt" name="master.hantsrks6" value="${master.hantsrks6}" /></td></tr>
+			<tr><td>7</td><td><input type="text" class="txt" name="master.hantsrks7" value="${master.hantsrks7}" /></td></tr>
+			<tr><td>8</td><td><input type="text" class="txt" name="master.hantsrks8" value="${master.hantsrks8}" /></td></tr>
+			<tr><td>9</td><td><input type="text" class="txt" name="master.hantsrks9" value="${master.hantsrks9}" /></td></tr>
 		</table>
 		</div>
 		<div id="divBot-right">
@@ -67,26 +67,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<th>締日</th>
 			<th>回収日</th>
 			<th>休日調整</th>
-			<tr><td><input type="text" class="txt" name="ksyusymd0" /></td>
-			<td><input type="text" class="txt" name="ksyuymd0" /></td><td><input type="text" class="txt" name="ksts0" /></td></tr>
-			<tr><td><input type="text" class="txt" name="ksyusymd1" /></td>
-			<td><input type="text" class="txt" name="ksyuymd1" /></td><td><input type="text" class="txt" name="ksts1" /></td></tr>
-			<tr><td><input type="text" class="txt" name="ksyusymd2" /></td>
-			<td><input type="text" class="txt" name="ksyuymd2" /></td><td><input type="text" class="txt" name="ksts2" /></td></tr>
-			<tr><td><input type="text" class="txt" name="ksyusymd3" /></td>
-			<td><input type="text" class="txt" name="ksyuymd3" /></td><td><input type="text" class="txt" name="ksts3" /></td></tr>
-			<tr><td><input type="text" class="txt" name="ksyusymd4" /></td>
-			<td><input type="text" class="txt" name="ksyuymd4" /></td><td><input type="text" class="txt" name="ksts4" /></td></tr>
-			<tr><td><input type="text" class="txt" name="ksyusymd5" /></td>
-			<td><input type="text" class="txt" name="ksyuymd5" /></td><td><input type="text" class="txt" name="ksts5" /></td></tr>
-			<tr><td><input type="text" class="txt" name="ksyusymd6" /></td>
-			<td><input type="text" class="txt" name="ksyuymd6" /></td><td><input type="text" class="txt" name="ksts6" /></td></tr>
-			<tr><td><input type="text" class="txt" name="ksyusymd7" /></td>
-			<td><input type="text" class="txt" name="ksyuymd7" /></td><td><input type="text" class="txt" name="ksts7" /></td></tr>
-			<tr><td><input type="text" class="txt" name="ksyusymd8" /></td>
-			<td><input type="text" class="txt" name="ksyuymd8" /></td><td><input type="text" class="txt" name="ksts8" /></td></tr>
-			<tr><td><input type="text" class="txt" name="ksyusymd9" /></td>
-			<td><input type="text" class="txt" name="ksyuymd9" /></td><td><input type="text" class="txt" name="ksts9" /></td></tr>
+			<tr><td><input type="text" class="txt" name="master.ksyusymd0" value="${master.ksyusymd0}" /></td>
+			<td><input type="text" class="txt" name="master.ksyuymd0" value="${master.ksyuymd0}" /></td><td><input type="text" class="txt" name="master.ksts0" value="${master.ksts0}" /></td></tr>
+			<tr><td><input type="text" class="txt" name="ksyusymd1" value="${master.ksyusymd1}" /></td>
+			<td><input type="text" class="txt" name="master.ksyuymd1" value="${master.ksyuymd1}" /></td><td><input type="text" class="txt" name="master.ksts1" value="${master.ksts1}" /></td></tr>
+			<tr><td><input type="text" class="txt" name="master.ksyusymd2" value="${master.ksyusymd2}" /></td>
+			<td><input type="text" class="txt" name="master.ksyuymd2" value="${master.ksyuymd2}" /></td><td><input type="text" class="txt" name="master.ksts2" value="${master.ksts2}" /></td></tr>
+			<tr><td><input type="text" class="txt" name="master.ksyusymd3" value="${master.ksyusymd3}" /></td>
+			<td><input type="text" class="txt" name="master.ksyuymd3" value="${master.ksyuymd3}" /></td><td><input type="text" class="txt" name="master.ksts3" value="${master.ksts3}" /></td></tr>
+			<tr><td><input type="text" class="txt" name="master.ksyusymd4" value="${master.ksyusymd4}" /></td>
+			<td><input type="text" class="txt" name="master.ksyuymd4" value="${master.ksyuymd4}" /></td><td><input type="text" class="txt" name="master.ksts4" value="${master.ksts4}" /></td></tr>
+			<tr><td><input type="text" class="txt" name="master.ksyusymd5" value="${master.ksyusymd5}" /></td>
+			<td><input type="text" class="txt" name="master.ksyuymd5" value="${master.ksyuymd5}" /></td><td><input type="text" class="txt" name="master.ksts5" value="${master.ksts5}" /></td></tr>
+			<tr><td><input type="text" class="txt" name="master.ksyusymd6" value="${master.ksyusymd6}" /></td>
+			<td><input type="text" class="txt" name="master.ksyuymd6" value="${master.ksyuymd6}" /></td><td><input type="text" class="txt" name="master.ksts6" value="${master.ksts6}" /></td></tr>
+			<tr><td><input type="text" class="txt" name="master.ksyusymd7" value="${master.ksyusymd7}" /></td>
+			<td><input type="text" class="txt" name="master.ksyuymd7" value="${master.ksyuymd7}" /></td><td><input type="text" class="txt" name="master.ksts7" value="${master.ksts7}" /></td></tr>
+			<tr><td><input type="text" class="txt" name="master.ksyusymd8" value="${master.ksyusymd8}" /></td>
+			<td><input type="text" class="txt" name="master.ksyuymd8" value="${master.ksyuymd8}" /></td><td><input type="text" class="txt" name="master.ksts8" value="${master.ksts8}" /></td></tr>
+			<tr><td><input type="text" class="txt" name="master.ksyusymd9" value="${master.ksyusymd9}" /></td>
+			<td><input type="text" class="txt" name="master.ksyuymd9" value="${master.ksyuymd9}" /></td><td><input type="text" class="txt" name="master.ksts9" value="${master.ksts9}" /></td></tr>
 		</table>
 		</div>
 	</div>

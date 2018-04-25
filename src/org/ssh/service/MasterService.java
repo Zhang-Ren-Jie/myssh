@@ -13,11 +13,11 @@ public class MasterService<T> {
 	
 
 	
-	public List<T> queryMaster(String ymd,Class<T> clazz){
-		if(ymd == null || "".equals(ymd)) 
+	public List<T> queryMaster(Integer searchText,Class<T> clazz){
+		if(searchText == null || "".equals(searchText)) 
 			return dao.getAllObjects(clazz);
 
-		String queryString = "SELECT m FROM maintenance m WHERE m.Pyakucd = '"+ymd +"'";
+		String queryString = "SELECT m FROM Maintenance m WHERE m.id ="+searchText ;
 		
 		return dao.getObjects(queryString);
 	}

@@ -1,7 +1,13 @@
 package org.ssh.pojo;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+
+
 public class Maintenance {
-	private String btn;
 	private Integer id;
 	private String pyakucd;
 	private String hancd;
@@ -59,6 +65,8 @@ public class Maintenance {
 	public Maintenance() {
 		super();
 	}
+
+	
 
 	public Maintenance(Integer id,String pyakucd, String hancd, String hannm, String hanknm, 
 			String hantsrks0,String hantsrks1,String hantsrks2,String hantsrks3,String hantsrks4,String hantsrks5,String hantsrks6,String hantsrks7,String hantsrks8,String hantsrks9,
@@ -121,14 +129,21 @@ public class Maintenance {
 		this.kymd = kymd;
 	}
 
-	public String getBtn() {
-		return btn;
-	}
 
-	public void setBtn(String btn) {
-		this.btn = btn;
+	@Id  
+	@Column(name = "Id", unique = true, nullable = false)  
+	@GeneratedValue(strategy = GenerationType.AUTO)  
+	public Integer getId() {  
+	    return this.id;  
+	}  
+	@Id  
+	@Column(name = "Id", unique = true, nullable = false)  
+	@GeneratedValue(strategy = GenerationType.AUTO)  
+	public void setId(Integer id) {
+		this.id = id;
 	}
-
+	
+	
 	public String getPyakucd() {
 		return pyakucd;
 	}
@@ -497,13 +512,7 @@ public class Maintenance {
 		this.kymd = kymd;
 	}
 
-	public Integer getId() {
-		return id;
-	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
 	
 
 }
