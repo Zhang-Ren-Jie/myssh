@@ -10,9 +10,7 @@ import org.ssh.dao.BaseDao;
 public class MasterService<T> {
 	
 	private BaseDao dao;
-	
 
-	
 	public List<T> queryMaster(Integer searchText,Class<T> clazz){
 		if(searchText == null || "".equals(searchText)) 
 			return dao.getAllObjects(clazz);
@@ -27,8 +25,6 @@ public class MasterService<T> {
 	public void addMaster(T master) throws Exception{
 		dao.addObject(master);
 	}
-	
-	
 	
 	public void modifyMaster(T master) throws Exception{
 		dao.updateObject(master);

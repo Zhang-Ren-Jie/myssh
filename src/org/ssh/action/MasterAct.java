@@ -4,9 +4,6 @@ package org.ssh.action;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
-import java.util.concurrent.atomic.AtomicLong;
-
 import org.apache.struts2.ServletActionContext;
 import org.ssh.pojo.Maintenance;
 import org.ssh.service.MasterService;
@@ -42,7 +39,7 @@ public class MasterAct extends ActionSupport {
 		} else {
 			master = null;
 		}
-		
+		addActionMessage("执行成功了^-^");
 		return SUCCESS;
 	}
 		
@@ -50,17 +47,31 @@ public class MasterAct extends ActionSupport {
 		String result = "";
 		System.out.println("新規登録処理を開始");
 		try {
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); //显示的格式
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //显示的格式
 
+			searchTextPy = master.getPyakucd();
+			if (searchTextPy != null ) {
+				System.out.println("略CD すでに存在している");
+				addActionMessage("略CD すでに存在している");
+				return SUCCESS;
+			}
+			
 			xint=(int)(Math.random()*900)+100;
 			master.setId(xint);
 			master.setToymd(sdf.format(new Date()));
 		    master.setKymd(sdf.format(new Date()));
-			searchText = master.getId();
 
+			if (master.getId() != null ) {
+				System.out.println("ID すでに存在している");
+				addActionMessage("ID すでに存在している");
+				return SUCCESS;
+			}
+			
+			
 			masterService.addMaster(master);
-			System.out.println("新規登録対象レコードが登録しました。");
+			addActionMessage("新規登録処理を終了");
 			System.out.println("新規登録処理を終了");
+			
 		    result = doQuery();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -72,16 +83,17 @@ public class MasterAct extends ActionSupport {
 		System.out.println("更新処理を開始");
 		try {
 
-			//-----更新日付存在性チェック----------------------------
 			searchTextPy = master.getPyakucd();
 			if (searchTextPy == null | "".equals(searchTextPy)) {
-				System.out.println("更新日付を入力してください。");
+				System.out.println("更新CDを入力してください。");
+				addActionMessage("更新CDを入力してください。");
 				return SUCCESS;
 			}
 			
 			masters = masterService.queryMaster(searchText,Maintenance.class);
 			if (masters.size() == 0) {
 				System.out.println("更新対象レコードがありません。");
+				addActionMessage("更新対象レコードがありません。");
 				return SUCCESS;
 			}
 
@@ -89,9 +101,8 @@ public class MasterAct extends ActionSupport {
 			master.setId(masters.get(0).getId());
 			master.setToymd(sdf.format(new Date()));
 			master.setKymd(sdf.format(new Date()));
-			
 			masterService.modifyMaster(master);
-			System.out.println("更新対象レコードが更新しました。");
+			addActionMessage("更新処理を終了");
 			System.out.println("更新処理を終了");	
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -100,8 +111,6 @@ public class MasterAct extends ActionSupport {
 		return doQuery();
 	}	
 	
-	
-	
 	public String doDelete(){
 	    System.out.println("削除処理を開始");
 		try {
@@ -109,6 +118,7 @@ public class MasterAct extends ActionSupport {
 			searchTextPy = master.getPyakucd();
 			if (searchTextPy == null | "".equals(searchTextPy)) {
 				errmsg = "削除のキー年月日を入力してください。";
+				addActionMessage("削除のキー年月日を入力してください。");
 				System.out.println("削除のキー年月日を入力してください。");
 				return SUCCESS;
 			}
@@ -116,16 +126,15 @@ public class MasterAct extends ActionSupport {
 			masters = masterService.queryMaster(searchText,Maintenance.class);
 			if (masters.size() == 0) {
 				errmsg = "削除対象レコードがありません。";
+				addActionMessage("削除対象レコードがありません。");
 				System.out.println("削除対象レコードがありません。");
 				return SUCCESS;
 			}
 			
 			int param = masters.get(0).getId();
-			
 			masterService.deleteMaster(param,Maintenance.class);
-			
 			errmsg = "削除対象レコードが削除しました。";
-			System.out.println("削除対象レコードが削除しました。");
+			addActionMessage("削除処理を終了");
 			System.out.println("削除処理を終了");
 		} catch (Exception e) {
 			e.printStackTrace();

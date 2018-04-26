@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//WebRoot/CheckTest.jsp=UTF-8
+encoding//WebRoot/test.jsp=UTF-8
 encoding//src/org/ssh/action/MasterAct.java=UTF-8
 encoding//src/org/ssh/action/UserManagerAct.java=UTF-8
 encoding//src/org/ssh/dao/BaseDao.java=UTF-8
